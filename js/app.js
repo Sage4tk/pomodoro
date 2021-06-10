@@ -15,5 +15,3 @@ pomodorTimer = (timeMinute, restMinute) => {
         currentTime -= 1;
     }, 1000)
 }
-
-pomodorTimer(0.5, 0.1)
