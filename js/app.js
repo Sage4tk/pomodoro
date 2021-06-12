@@ -14,12 +14,12 @@ minuteConverter = (number) => {
     return figure;
 }
 
-pomodorTimer = (timeMinute, restMinute) => {
+pomodoroTimer = (timeMinute, restMinute) => {
     let currentTime = timeMinute * 60 + 1;
     let work = true;
     document.querySelector('h1').innerHTML = "WORK!"
     const timer = setInterval(() => {
-        if (currentTime <= 1) {
+        if (currentTime <= 0) {
             if (work === true) {
                 document.querySelector('h1').innerHTML = "Rest!"
                 currentTime = restMinute * 60 + 1;
@@ -34,4 +34,17 @@ pomodorTimer = (timeMinute, restMinute) => {
     }, 1000)
 }
 
-pomodorTimer(80, 5)
+const inputs = document.querySelectorAll('input');
+
+document.querySelector('button').onclick = () => {
+    const convert0 = parseInt(inputs[0].value);
+    const convert1 = parseInt(inputs[1].value);
+    
+    if ((isNaN(convert0) || convert0 < 1) || (isNaN(convert1) || convert1 < 1)) {
+        console.log('test')
+    } else {
+        pomodoroTimer(convert0, convert1)
+    }
+}
+
+pomodoroTimer(0.25, 0.25)
