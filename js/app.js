@@ -41,10 +41,8 @@ document.querySelector('button').onclick = () => {
     const convert1 = parseInt(inputs[1].value);
     
     if ((isNaN(convert0) || convert0 < 1) || (isNaN(convert1) || convert1 < 1)) {
-        console.log('test')
+        document.querySelector('h2').innerHTML = "Invalid Number."
     } else {
         pomodoroTimer(convert0, convert1)
     }
 }
-
-pomodoroTimer(0.25, 0.25)
